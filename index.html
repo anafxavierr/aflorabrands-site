@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aflora Brands | Brand Studio</title>
+<meta name="description" content="Brand Studio idealizado por Ana Xavier. Para quem busca sucesso sem perder a essência.">
+<link rel="icon" href="img/simbolo-terra.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap">
+<style>
+/* VOICE: profunda, acolhedora, pé no chão; muito respiro, poucos elementos por tela
+   IDEA: uma marca que aflora; a página se abre aos poucos, como algo que cresce da raiz
+   PICTURE: o símbolo da Aflora em órbita sobre névoa desfocada com granulado
+   COLOUR and TYPE: musgo profundo e off-white quente, areia como ação; Poppins leve + The Seasons nos destaques
+   LAYOUT: modelo Stōkt — capítulos escuros e claros alternados, escada de confiança até o contato */
+@font-face{font-family:'The Seasons';src:url('TheSeasons-Bold-PT.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+:root{--musgo:#2f3b2a;--deep:#1c2418;--deep2:#263020;--line-d:#3a4434;--paper:#faf8f3;--tint:#eeebe1;--line:#e3dfd2;--ink:#4d3f2e;--muted:#76705a;--cream:#f1ede3;--cream2:#d8d3c4;--sand:#a09d90;--sand2:#b8b3a0;--ease:cubic-bezier(.22,1,.36,1);color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 16px/1.6 Poppins,'Helvetica Neue',Arial,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+h1,h2{font-weight:300;letter-spacing:-.018em;text-wrap:balance}
+.ds{font-family:'The Seasons',Georgia,serif;font-weight:700;font-style:normal;font-size:1.18em;line-height:1;letter-spacing:0}
+.lbl{font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:400}
+.wrap{max-width:1280px;margin:0 auto}
+.band{padding:clamp(88px,10vw,140px) max(5vw,20px)}
+.dark{background:var(--deep);color:var(--cream)}
+.h2{font-size:clamp(36px,4.6vw,56px);line-height:1.08}
+.lead{font-size:16px;line-height:1.65;max-width:62ch}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:60;opacity:.07;mix-blend-mode:multiply}
+/* botões com texto que rola */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:4px;transition:background .3s var(--ease),border-color .3s,gap .3s var(--ease)}
+.btn:hover{gap:16px}
+.btn:focus-visible,.acc-p button:focus-visible,a:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+.roll{display:inline-block;overflow:hidden;height:16px}
+.roll>span{display:block;transition:transform .5s var(--ease)}
+.roll>span::after{content:attr(data-t);display:block}
+.btn:hover .roll>span,.nav a:hover .roll>span{transform:translateY(-50%)}
+.b-sand{background:var(--sand);color:var(--deep)}.b-sand:hover{background:var(--sand2)}
+.b-musgo{background:var(--musgo);color:#fff}.b-musgo:hover{background:#3d4b37}
+.b-line{border:1px solid rgba(241,237,227,.5);color:var(--cream)}.b-line:hover{background:rgba(241,237,227,.1)}
+.b-line-d{border:1px solid #7f7d5a}.b-line-d:hover{background:var(--tint)}
+.arrow{width:14px;height:14px;flex:none}
+/* nav */
+.nav{position:fixed;top:20px;left:50%;z-index:50;width:min(1280px,calc(100% - 40px));transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 22px;border-radius:8px;background:rgba(28,36,24,.55);border:1px solid rgba(241,237,227,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--cream);transition:transform .6s var(--ease),background .4s}
+.nav.hide{transform:translate(-50%,-140%)}
+.nav.solid{background:rgba(28,36,24,.88)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{padding:12px 0}
+/* hero */
+.hero{position:relative;min-height:max(100vh,760px);display:flex;flex-direction:column;overflow:hidden}
+.hero-bg{position:absolute;inset:-8%;background:url('img/nevoa.jpg') center/cover;filter:blur(36px) saturate(.55)}
+.veil{position:absolute;inset:0;background:rgba(28,36,24,.62)}
+.hero-in{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;padding:150px 20px 40px}
+.hero h1{max-width:980px;font-size:clamp(42px,6.4vw,88px);line-height:1.06}
+.hero p{max-width:560px;font-size:18px;line-height:1.66;color:var(--cream2)}
+.ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px}
+.orbit{position:relative;width:min(320px,70vw);aspect-ratio:1;margin-top:20px;display:grid;place-items:center}
+.orbit i{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.35)}
+.orbit .r1{inset:0}.orbit .r2{inset:18%;border-color:rgba(255,255,255,.5)}
+.orbit .spin{position:absolute;inset:0;animation:spin 36s linear infinite}
+.orbit .spin b{position:absolute;top:-5px;left:calc(50% - 5px);width:10px;height:10px;border-radius:50%;background:var(--cream)}
+.orbit .spin.s2{inset:18%;animation-duration:22s;animation-direction:reverse}
+.orbit .spin.s2 b{width:6px;height:6px;top:-3px;left:calc(50% - 3px);background:var(--sand)}
+.orbit img{width:22%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-foot{position:relative;z-index:1;display:flex;justify-content:space-between;padding:0 max(5vw,20px) 28px;color:var(--sand2)}
+.cue{display:inline-flex;gap:10px;align-items:center}
+.cue s{display:block;width:1px;height:28px;background:var(--sand2);text-decoration:none;transform-origin:top;animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* serviços + marquee */
+.svc{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:56px max(5vw,20px) 0;max-width:1376px;margin:0 auto}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:10px 16px;border-radius:999px;border:1px solid var(--line)}
+.mq{margin-top:48px;border-block:1px solid var(--line);padding:28px 0;overflow:hidden}
+.mq-track{display:flex;width:max-content;align-items:center;gap:48px;font:700 clamp(34px,4vw,52px)/1 'The Seasons',Georgia,serif;animation:mq 46s linear infinite;will-change:transform}
+.mq-track img{width:30px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* trabalhos */
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px}
+.head>div{display:flex;flex-direction:column;gap:16px;max-width:640px}
+.card{position:relative;display:block;border-radius:8px;overflow:hidden;color:#fff;isolation:isolate}
+.card .ph{position:absolute;inset:-12% 0;background-size:cover;background-position:center;transition:transform 1s var(--ease)}
+.card:hover .ph{transform:scale(1.05)}
+.card .veil{background:linear-gradient(to top,rgba(28,36,24,.78),rgba(28,36,24,.18) 60%)}
+.card .ph-note{position:absolute;top:22px;right:22px;padding:8px 14px;border:1px dashed rgba(255,255,255,.6);border-radius:999px;z-index:1}
+.card .info{position:absolute;left:clamp(20px,3vw,32px);right:clamp(20px,3vw,32px);bottom:clamp(20px,3vw,32px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;z-index:1}
+.card .info>div{display:flex;flex-direction:column;gap:10px;max-width:560px}
+.card h3{font-weight:300;font-size:clamp(30px,3.4vw,42px);line-height:1.1}
+.c-big{height:clamp(420px,46vw,620px)}
+.c-sm{height:clamp(400px,38vw,520px)}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px}
+.more{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:32px;border-radius:8px;background:var(--tint);margin-top:24px}
+.pill{padding:14px 20px;border-radius:999px;background:var(--paper);border:1px solid var(--line);transition:background .3s,transform .3s var(--ease)}
+.pill:hover{background:#fff;transform:translateY(-2px)}
+/* acordeão */
+.acc{display:flex;gap:12px;height:520px;margin-top:48px}
+.acc-p{position:relative;flex:0 0 92px;border-radius:8px;border:1px solid var(--line-d);overflow:hidden;transition:flex-basis .8s var(--ease),flex-grow .8s var(--ease),background .5s}
+.acc-p.on{flex:1 1 0;background:var(--deep2)}
+.acc-p button{position:absolute;inset:0;width:100%;background:none;border:0;color:var(--cream);font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:24px 0;transition:opacity .3s}
+.acc-p button .tt{writing-mode:vertical-rl;transform:rotate(180deg);font-size:20px;white-space:nowrap}
+.pm{display:none;font-size:24px;line-height:1;font-weight:200;color:var(--sand);transition:transform .5s var(--ease)}
+.acc-p.on button{opacity:0;pointer-events:none}
+.acc-c{position:absolute;inset:0;display:grid;grid-template-columns:minmax(280px,1fr) minmax(0,1fr);gap:24px;padding:24px;opacity:0;transition:opacity .5s .1s}
+.acc-c{pointer-events:none}
+.acc-p.on .acc-c{opacity:1;transition-delay:.45s;pointer-events:auto}
+.acc-t{display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:16px;min-width:280px}
+.acc-t h3{font-weight:300;font-size:34px;line-height:1.15}
+.acc-t .q{font:700 26px/1.25 'The Seasons',Georgia,serif;color:var(--sand)}
+.acc-t p{color:var(--sand2)}
+.acc-img{position:relative;border-radius:8px;overflow:hidden;display:grid;place-items:center}
+.acc-img .bg{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(30px) saturate(.6);transform:scale(1.15);transition:transform 1.4s var(--ease)}
+.acc-p.on .acc-img .bg{transform:scale(1)}
+.acc-img i{position:absolute;width:220px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.5)}
+.acc-img img{position:relative;width:64px}
+/* sobre */
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.b-img{position:relative;min-height:560px;border-radius:8px;overflow:hidden;display:grid;place-items:center}
+.b-img .bg{position:absolute;inset:-10%;background:url('img/madeira.jpg') center/cover;filter:blur(30px) saturate(.6)}
+.b-img img{position:relative;width:88px}
+.b-img .lbl{position:absolute;left:24px;bottom:24px}
+.b-txt{padding:clamp(28px,4vw,48px);border-radius:8px;background:var(--deep2);border:1px solid var(--line-d);display:flex;flex-direction:column;justify-content:center;gap:22px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.stat{padding:32px;border-radius:8px;border:1px solid var(--line-d);display:flex;flex-direction:column;gap:8px}
+.stat strong{font-size:64px;line-height:1;font-weight:200}
+.stat span{font-size:14px;color:var(--sand2)}
+.stat.base{background:var(--musgo);border-color:var(--musgo);justify-content:space-between}
+/* depoimentos */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:center;margin-top:56px}
+.q-card{margin:0;padding:32px;border-radius:8px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;gap:24px;transition:transform .6s var(--ease)}
+.q-card:hover{transform:rotate(0) translateY(-4px)!important}
+.q-card blockquote{margin:0;font-size:17px;line-height:1.65}
+.q-card.hl{background:var(--musgo);color:#fff;border-color:var(--musgo);padding:40px 32px}
+.who{display:flex;align-items:center;gap:12px}.who i{width:40px;height:40px;border-radius:50%;background:var(--tint)}
+.who b{display:block;font-size:14px;font-weight:400}
+/* manifesto */
+.manif{position:relative;overflow:hidden;background:var(--musgo);color:#fff;text-align:center}
+.manif .bg{position:absolute;inset:-15% 0;background:url('img/linha-folha.jpg') center/cover;opacity:.5}
+.manif .in{position:relative;max-width:980px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px}
+.manif p{font-size:clamp(32px,4.6vw,62px);line-height:1.14;letter-spacing:-.015em}
+/* cta */
+.cta{text-align:center}
+.cta .in{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px}
+.cta h2{font-size:clamp(46px,7.4vw,108px);line-height:1.02;letter-spacing:-.028em}
+.mail{font-size:14px;color:var(--muted)}
+/* rodapé */
+footer{padding:80px max(5vw,20px) 36px}
+.f-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.f-grid>div,.f-grid>nav{display:flex;flex-direction:column;gap:12px;font-size:14px}
+.f-grid a{opacity:.85;transition:opacity .3s}.f-grid a:hover{opacity:1}
+.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:64px;padding-top:24px;border-top:1px solid var(--line-d);font-size:12px;color:var(--sand2)}
+/* revelações (só quando a animação está ativa) */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.w>span{display:inline-block}
+/* telas menores */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .g2,.bento,.quotes{grid-template-columns:1fr}
+  .stats,.f-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .acc{flex-direction:column;height:auto}
+  .acc-p,.acc-p.on{flex:none;height:auto}
+  .acc-p button,.acc-p.on button{position:relative;inset:auto;height:72px;flex-direction:row;justify-content:flex-start;gap:20px;padding:0 24px;opacity:1;pointer-events:auto}
+  .acc-p button .tt{writing-mode:horizontal-tb;transform:none;font-size:18px;white-space:normal;text-align:left;flex:1}
+  .pm{display:block!important}
+  .acc-p.on .pm{transform:rotate(45deg)}
+  .acc-c{position:relative;inset:auto;grid-template-columns:1fr;gap:16px;padding:0 16px;max-height:0;overflow:hidden;transition:max-height .7s var(--ease),opacity .4s,padding .7s var(--ease)}
+  .acc-p.on .acc-c{max-height:1000px;padding:0 16px 16px;transition-delay:0s}
+  .acc-t{min-width:0;padding:8px}
+  .acc-t>.lbl,.acc-t h3{display:none}
+  .acc-img{min-height:240px}
+  .q-card{transform:none!important}
+}
+@media (max-width:560px){.stats,.f-grid{grid-template-columns:1fr}.hero-foot .lbl:last-child{display:none}.more{padding:24px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <a href="#inicio" aria-label="Aflora Brands, início"><img src="img/logo-branco.svg" alt="Aflora" style="height:28px;width:auto"></a>
+  <div class="nav-links">
+    <a href="#trabalhos" class="lbl"><span class="roll"><span data-t="Trabalhos">Trabalhos</span></span></a>
+    <a href="#metodo" class="lbl"><span class="roll"><span data-t="Como funciona">Como funciona</span></span></a>
+    <a href="#sobre" class="lbl"><span class="roll"><span data-t="Sobre">Sobre</span></span></a>
+  </div>
+  <a href="#contato" class="btn b-sand lbl" style="padding:14px 20px"><span class="roll"><span data-t="Vamos conversar">Vamos conversar</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</nav>
+
+<main>
+<section class="hero dark" id="inicio">
+  <div class="hero-bg" data-parallax="18" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="hero-in">
+    <span class="lbl a-in" style="color:var(--sand2)">( Brand Studio por Ana Xavier )</span>
+    <h1 data-split>Para quem busca sucesso sem perder a <span class="ds">essência</span>.</h1>
+    <p class="a-in">A Aflora é um Brand Studio idealizado por Ana Xavier. Ajudamos empreendedoras e profissionais a comunicar o que torna suas marcas únicas.</p>
+    <div class="ctas a-in">
+      <a href="#trabalhos" class="btn b-line lbl"><span class="roll"><span data-t="Ver projetos">Ver projetos</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <a href="#contato" class="btn b-sand lbl"><span class="roll"><span data-t="Vamos conversar">Vamos conversar</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="orbit a-orbit" aria-hidden="true">
+      <i class="r1"></i><i class="r2"></i>
+      <div class="spin"><b></b></div><div class="spin s2"><b></b></div>
+      <img src="img/simbolo-branco.svg" alt="">
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span class="lbl cue"><s></s>Role para conhecer</span>
+    <span class="lbl">São Paulo, Brasil</span>
+  </div>
+</section>
+
+<section aria-label="O que fazemos">
+  <div class="svc">
+    <span class="lbl" style="color:var(--muted)">( O que fazemos )</span>
+    <div class="tags lbl" data-stagger>
+      <span class="tag">Estratégia de Marca</span><span class="tag">Direção Criativa</span><span class="tag">Fotografia</span><span class="tag">Social Media</span>
+    </div>
+  </div>
+  <div class="mq" aria-hidden="true">
+    <div class="mq-track" id="mq">
+      <span>Essência</span><img src="img/simbolo-terra.svg" alt=""><span>Estratégia</span><img src="img/simbolo-terra.svg" alt=""><span>Comunicação</span><img src="img/simbolo-terra.svg" alt=""><span>Intenção</span><img src="img/simbolo-terra.svg" alt="">
+      <span>Essência</span><img src="img/simbolo-terra.svg" alt=""><span>Estratégia</span><img src="img/simbolo-terra.svg" alt=""><span>Comunicação</span><img src="img/simbolo-terra.svg" alt=""><span>Intenção</span><img src="img/simbolo-terra.svg" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="band" id="trabalhos">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="lbl r-up" style="color:var(--muted)">( 01 ) Trabalhos selecionados</span>
+        <h2 class="h2" data-split>Estratégia em <span class="ds">ação</span>.</h2>
+        <p class="lead r-up" style="color:var(--muted)">Projetos da trajetória de Ana Xavier, em diferentes contextos. Uma experiência que faz parte do olhar da Aflora.</p>
+      </div>
+      <a href="#trabalhos" class="btn b-musgo lbl r-up"><span class="roll"><span data-t="Ver mais projetos">Ver mais projetos</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <a href="#trabalhos" class="card c-big r-card">
+      <div class="ph" data-parallax="10" style="background-image:url('img/madeira.jpg')"></div>
+      <div class="veil"></div>
+      <span class="ph-note lbl">Imagem do case em breve</span>
+      <div class="info">
+        <div><span class="lbl">01 · Marca + Comunicação</span><h3>StoneLight Drinks</h3><p>Um jeito próprio de se apresentar em um mercado de bebidas com marcas muito parecidas.</p></div>
+        <span class="btn lbl" style="padding:0">Entenda o trabalho<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <div class="g2">
+      <a href="#trabalhos" class="card c-sm r-card">
+        <div class="ph" data-parallax="10" style="background-image:url('img/folha.jpg')"></div>
+        <div class="veil"></div>
+        <span class="ph-note lbl">Imagem do case em breve</span>
+        <div class="info"><div><span class="lbl">02 · Conteúdo + Estratégia</span><h3>BAE</h3><p>Um plano de publicações que mostra a personalidade da agência e conversa com seu público.</p></div></div>
+      </a>
+      <a href="#trabalhos" class="card c-sm r-card">
+        <div class="ph" data-parallax="10" style="background-image:url('img/mar.jpg')"></div>
+        <div class="veil"></div>
+        <span class="ph-note lbl">Imagem do case em breve</span>
+        <div class="info"><div><span class="lbl">03 · Social Media + Comunicação</span><h3>YVY</h3><p>Uma proposta de comunicação e conteúdo para as redes sociais da marca.</p></div></div>
+      </a>
+    </div>
+
+    <div class="more r-up">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl" style="color:var(--muted)">Além da estratégia</span><p style="font-size:26px;line-height:1.3">Outras formas de <span class="ds">criar</span>.</p></div>
+      <div class="tags lbl"><a href="#trabalhos" class="pill">Fotografia ↗</a><a href="#trabalhos" class="pill">Posts ↗</a><a href="#trabalhos" class="pill">Audiovisual ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="metodo">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+      <span class="lbl r-up" style="color:var(--sand2)">( 02 ) Como funciona</span>
+      <h2 class="h2" data-split>Um caminho em <span class="ds">quatro</span> etapas.</h2>
+      <p class="lead r-up" style="color:var(--sand2)">Estratégia de marca é o plano que ajuda seu negócio a mostrar o que tem de especial e a se conectar com as pessoas certas. Construímos esse caminho com os 4 Es.</p>
+    </div>
+    <div class="acc r-up" id="acc"></div>
+  </div>
+</section>
+
+<section class="band dark" id="sobre" style="padding-top:0">
+  <div class="wrap">
+    <div class="bento">
+      <div class="b-img r-card"><div class="bg" data-parallax="8" aria-hidden="true"></div><img src="img/simbolo-branco.svg" alt=""><span class="lbl" style="color:#fff">Foto da Ana em breve</span></div>
+      <div class="b-txt">
+        <span class="lbl r-up" style="color:var(--sand2)">( 03 ) Por trás da Aflora</span>
+        <h2 class="h2" data-split style="font-size:clamp(34px,4vw,50px)">O olhar por trás da <span class="ds">Aflora</span>.</h2>
+        <p class="r-up" style="color:var(--cream2)">Oie, me chamo Ana Xavier, sou formada pela ESPM São Paulo e estou há mais de 4 anos no mercado.</p>
+        <p class="r-up" style="color:var(--sand2)">Ao longo dessa trajetória, já trabalhei com mais de 20 marcas e construí um olhar que une o visual, o planejamento e a criação. Gosto de conhecer a história de cada negócio e conectar ideias, imagens e mensagens de um jeito que faça sentido para quem está por trás dele.</p>
+        <a href="#sobre" class="btn b-sand lbl r-up" style="align-self:flex-start"><span class="roll"><span data-t="Conheça minha trajetória">Conheça minha trajetória</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="stats" data-stagger>
+      <div class="stat"><strong><span data-count="4">4</span>+</strong><span>anos de mercado</span></div>
+      <div class="stat"><strong><span data-count="20">20</span>+</strong><span>marcas no portfólio</span></div>
+      <div class="stat"><strong>4 Es</strong><span>método de estratégia</span></div>
+      <div class="stat base"><span class="lbl" style="color:var(--sand2)">Base</span><span style="font-size:22px;line-height:1.3;color:var(--cream)">São Paulo, Brasil</span><span>Formação ESPM</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="dep">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px">
+      <span class="lbl r-up" style="color:var(--muted)">( 04 ) Quem já passou por aqui</span>
+      <h2 class="h2" id="dep" data-split>Não fique só com a nossa <span class="ds">palavra</span>.</h2>
+    </div>
+    <div class="quotes" id="quotes">
+      <figure class="q-card" data-rot="-2"><blockquote>[ Depoimento real de cliente, em duas a quatro linhas, contando o antes e o depois da marca. ]</blockquote><figcaption class="who"><i></i><span><b>[ Nome da cliente ]</b><span class="lbl" style="color:var(--muted)">[ Marca ]</span></span></figcaption></figure>
+      <figure class="q-card hl" data-rot="0"><img src="img/simbolo-branco.svg" alt="" style="width:28px"><blockquote style="font-size:19px">[ Depoimento de destaque: o que mudou no negócio depois da estratégia de marca. ]</blockquote><figcaption><b style="font-size:14px;font-weight:400;display:block">[ Nome da cliente ]</b><span class="lbl" style="color:var(--cream2)">[ Marca ]</span></figcaption></figure>
+      <figure class="q-card" data-rot="1.5"><blockquote>[ Depoimento real de cliente, em duas a quatro linhas, sobre como foi o processo. ]</blockquote><figcaption class="who"><i></i><span><b>[ Nome da cliente ]</b><span class="lbl" style="color:var(--muted)">[ Marca ]</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band manif" aria-label="Manifesto" style="padding-block:clamp(120px,14vw,180px)">
+  <div class="bg" data-parallax="14" aria-hidden="true"></div>
+  <div class="in">
+    <img src="img/simbolo-branco.svg" alt="" style="width:48px" class="r-up">
+    <span class="lbl r-up" style="color:var(--cream2)">Manifesto</span>
+    <p id="manif">Cresça sem deixar de ser quem é. Nós começamos pela <span class="ds">raiz</span>.</p>
+  </div>
+</section>
+
+<section class="band cta" id="contato">
+  <div class="in">
+    <span class="lbl r-up" style="color:var(--muted)">( 05 ) Vamos conversar?</span>
+    <h2 data-split>Uma boa ideia começa com uma <span class="ds">conversa</span>.</h2>
+    <p class="r-up" style="max-width:520px;font-size:18px;line-height:1.66;color:var(--muted)">Tem um projeto em mente? Vamos conhecer sua marca e pensar nos próximos passos juntos.</p>
+    <div class="ctas r-up">
+      <a href="mailto:anaxavierr1510@gmail.com" class="btn b-musgo lbl" style="padding:18px 28px"><span class="roll"><span data-t="Vamos conversar">Vamos conversar</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#contato" class="btn b-line-d lbl" style="padding:18px 28px"><span class="roll"><span data-t="WhatsApp ↗">WhatsApp ↗</span></span></a>
+    </div>
+    <span class="mail r-up">anaxavierr1510@gmail.com</span>
+  </div>
+</section>
+</main>
+
+<footer class="dark">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><img src="img/logo-branco.svg" alt="Aflora" style="width:140px;height:auto"><span style="color:var(--sand2)">São Paulo, Brasil</span><a href="mailto:anaxavierr1510@gmail.com">anaxavierr1510@gmail.com</a></div>
+      <nav aria-label="Rodapé"><span class="lbl" style="color:var(--sand2)">Navegação</span><a href="#inicio">Início</a><a href="#trabalhos">Trabalhos</a><a href="#metodo">Como funciona</a><a href="#sobre">Sobre</a></nav>
+      <div><span class="lbl" style="color:var(--sand2)">Serviços</span><span>Estratégia de Marca</span><span>Direção Criativa</span><span>Fotografia</span><span>Social Media</span></div>
+      <div><span class="lbl" style="color:var(--sand2)">Contato</span><a href="mailto:anaxavierr1510@gmail.com">E-mail ↗</a><a href="#contato">WhatsApp ↗</a><a href="#contato">Instagram ↗</a></div>
+    </div>
+    <div class="f-bot"><span>© 2026 Aflora Brands</span><span>Para quem busca sucesso sem perder a essência.</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+{
+  /* ---------- acordeão dos 4 Es ---------- */
+  const steps = [
+    { n: '01', t: 'Estratégia de Negócio', q: 'Onde você quer chegar?', d: 'Entendemos seus objetivos, seu público e a concorrência para encontrar o lugar que sua marca quer ocupar.', img: 'img/folha.jpg' },
+    { n: '02', t: 'Essência de Marca', q: 'O que torna sua marca única?', d: 'Descobrimos os valores, a história e a personalidade que dão sentido ao seu negócio.', img: 'img/madeira.jpg' },
+    { n: '03', t: 'Expressão Visual e Verbal', q: 'Como sua marca se apresenta?', d: 'Traduzimos o que sua marca é em imagens, palavras e um jeito próprio de se comunicar.', img: 'img/mar.jpg' },
+    { n: '04', t: 'Estratégia de Comunicação', q: 'Como chegar às pessoas certas?', d: 'Definimos os temas, formatos e canais para criar conexões e manter uma presença consistente.', img: 'img/montanha.jpg' }
+  ];
+  const acc = document.getElementById('acc');
+  acc.innerHTML = steps.map((s, i) => `
+    <div class="acc-p${i === 0 ? ' on' : ''}">
+      <button type="button" aria-expanded="${i === 0}" aria-controls="acc-c${i}"><span class="lbl" style="color:var(--sand2)">${s.n}</span><span class="tt">${s.t}</span><span class="pm" aria-hidden="true">+</span></button>
+      <div class="acc-c" id="acc-c${i}">
+        <div class="acc-t"><span class="lbl" style="color:var(--sand2)">Etapa ${s.n} de 04</span>
+          <div style="display:flex;flex-direction:column;gap:16px"><h3>${s.t}</h3><p class="q">${s.q}</p><p>${s.d}</p></div></div>
+        <div class="acc-img" aria-hidden="true"><div class="bg" style="background-image:url('${s.img}')"></div><i></i><img src="img/simbolo-branco.svg" alt=""></div>
+      </div>
+    </div>`).join('');
+  const panels = [...acc.querySelectorAll('.acc-p')];
+  const small = matchMedia('(max-width: 900px)');
+  panels.forEach((p, i) => p.querySelector('button').addEventListener('click', () => {
+    // no celular, tocar na etapa aberta fecha; no computador uma etapa fica sempre aberta
+    const close = small.matches && p.classList.contains('on');
+    panels.forEach((q, j) => { const on = !close && i === j; q.classList.toggle('on', on); q.querySelector('button').setAttribute('aria-expanded', String(on)); });
+  }));
+  acc.addEventListener('keydown', e => {
+    const i = panels.findIndex(p => p.classList.contains('on'));
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); panels[(i + 1) % 4].querySelector('button').click(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); panels[(i + 3) % 4].querySelector('button').click(); }
+  });
+
+  /* ---------- menu que some ao descer e volta ao subir ---------- */
+  const nav = document.getElementById('nav');
+  let lastY = scrollY;
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    nav.classList.toggle('hide', y > lastY && y > 200);
+    nav.classList.toggle('solid', y > innerHeight * 0.6);
+    lastY = y;
+  }, { passive: true });
+
+  /* ---------- animações com GSAP ---------- */
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.gsap && window.ScrollTrigger && !calm) {
+    gsap.registerPlugin(ScrollTrigger);
+    const ease = 'expo.out';
+
+    // títulos: palavras sobem de dentro de uma máscara
+    const split = el => {
+      const out = [];
+      [...el.childNodes].forEach(n => {
+        if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => out.push(t.trim() ? `<span class="w"><span>${t}</span></span>` : t));
+        else out.push(`<span class="w"><span>${n.outerHTML}</span></span>`);
+      });
+      el.innerHTML = out.join('');
+      return el.querySelectorAll('.w>span');
+    };
+    document.querySelectorAll('[data-split]').forEach(el => {
+      const words = split(el);
+      const inHero = el.closest('.hero');
+      gsap.from(words, { yPercent: 110, duration: 1.2, ease, stagger: 0.06, delay: inHero ? 0.35 : 0,
+        scrollTrigger: inHero ? null : { trigger: el, start: 'top 85%' } });
+    });
+
+    // entrada do hero
+    const intro = gsap.timeline({ defaults: { ease } });
+    intro.from('.hero-bg', { scale: 1.25, opacity: 0, duration: 2.2 }, 0)
+         .from('.nav', { yPercent: -160, duration: 1.2 }, 0.2)
+         .from('.hero .a-in', { y: 24, opacity: 0, duration: 1.1, stagger: 0.12 }, 0.6)
+         .from('.a-orbit', { scale: 0.6, opacity: 0, rotate: -40, duration: 1.8 }, 0.8)
+         .from('.hero-foot', { opacity: 0, duration: 1 }, 1.3);
+
+    // textos e blocos que sobem ao entrar na tela
+    gsap.utils.toArray('.r-up').forEach(el => gsap.from(el, { y: 32, opacity: 0, duration: 1.1, ease, scrollTrigger: { trigger: el, start: 'top 90%' } }));
+    gsap.utils.toArray('[data-stagger]').forEach(g => gsap.from(g.children, { y: 24, opacity: 0, duration: 0.9, ease, stagger: 0.08, scrollTrigger: { trigger: g, start: 'top 90%' } }));
+
+    // cards: abrem como uma cortina de baixo para cima
+    gsap.utils.toArray('.r-card').forEach(c => gsap.from(c, { clipPath: 'inset(18% 6% 0% 6% round 8px)', y: 60, duration: 1.4, ease, scrollTrigger: { trigger: c, start: 'top 92%' } }));
+
+    // parallax suave nas imagens
+    gsap.utils.toArray('[data-parallax]').forEach(el => {
+      const amt = +el.dataset.parallax;
+      gsap.fromTo(el, { yPercent: -amt / 2 }, { yPercent: amt / 2, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+
+    // o símbolo do hero se afasta ao rolar
+    gsap.to('.a-orbit', { y: -80, scale: 0.85, opacity: 0.3, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+    // números contam
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const o = { v: 0 }, end = +el.dataset.count;
+      gsap.to(o, { v: end, duration: 1.8, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(o.v); }, scrollTrigger: { trigger: el, start: 'top 90%' } });
+    });
+
+    // depoimentos: chegam girando até a posição levemente torta
+    gsap.utils.toArray('.q-card').forEach((c, i) => {
+      gsap.fromTo(c, { y: 90, opacity: 0, rotate: i % 2 ? -6 : 6 },
+        { y: 0, opacity: 1, rotate: +c.dataset.rot, duration: 1.3, ease, delay: i * 0.1, scrollTrigger: { trigger: '#quotes', start: 'top 85%' } });
+    });
+
+    // manifesto: as palavras acendem conforme a leitura
+    const mw = split(document.getElementById('manif'));
+    gsap.fromTo(mw, { opacity: 0.15 }, { opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: '#manif', start: 'top 80%', end: 'bottom 45%', scrub: true } });
+
+    // faixa de palavras acelera com a rolagem
+    const track = document.getElementById('mq');
+    ScrollTrigger.create({ onUpdate: self => {
+      const v = Math.min(Math.abs(self.getVelocity()) / 1500, 2.5);
+      track.getAnimations().forEach(a => { a.playbackRate = 1 + v; });
+    } });
+
+    // acordeão: imagem acompanha ao trocar de etapa
+    panels.forEach(p => p.querySelector('button').addEventListener('click', () => {
+      gsap.from(p.querySelectorAll('.acc-t h3, .acc-t .q, .acc-t p'), { y: 20, opacity: 0, duration: 0.9, ease, stagger: 0.07, delay: 0.4 });
+    }));
+  }
+}
+</script>
+</body>
+</html>
